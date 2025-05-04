@@ -1,26 +1,177 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-cardRoughDraft: oklch(0.98 0.02 200); /* Crisp white background */
+  --foreground: oklch(0.2 0.1 200); /* Deep blue text */
+  --card: oklch(0.99 0.01 200); /* Light blue card */
+  --card-foreground: oklch(0.2 0.1 200); /* Deep blue card text */
+  --popover: oklch(0.99 0.01 200); /* Light blue popover */
+  --popover-foreground: oklch(0.2 0.1 200); /* Deep blue popover text */
+  --primary: oklch(0.7 0.2 200); /* Electric blue primary */
+  --primary-foreground: oklch(0.98 0.01 40); /* Near-white primary text */
+  --secondary: oklch(0.95 0.05 40); /* Pale orange secondary */
+  --secondary-foreground: oklch(0.3 0.15 200); /* Darker blue secondary text */
+  --muted: oklch(0.96 0.02 200); /* Muted blue */
+  --muted-foreground: oklch(0.5 0.1 200); /* Mid-tone blue muted text */
+  --accent: oklch(0.9 0.08 40); /* Soft orange accent */
+  --accent-foreground: oklch(0.3 0.15 200); /* Darker blue accent text */
+  --destructive: oklch(0.65 0.25 20); /* Fiery red for destructive actions */
+  --border: oklch(0.88 0.05 200); /* Light blue border */
+  --input: oklch(0.88 0.05 200); /* Light blue input */
+  --ring: oklch(0.65 0.15 200); /* Mid-tone blue ring */
+  --chart-1: oklch(0.7 0.2 200); /* Blue chart 1 */
+  --chart-2: oklch(0.68 0.18 40); /* Orange chart 2 */
+  --chart-3: oklch(0.66 0.16 160); /* Cyan chart 3 */
+  --chart-4: oklch(0.72 0.14 200); /* Muted blue chart 4 */
+  --chart-5: oklch(0.74 0.12 180); /* Teal chart 5 */
+  --sidebar: oklch(0.99 0.01 200); /* Light blue sidebar */
+  --sidebar-foreground: oklch(0.2 0.1 200); /* Deep blue sidebar text */
+  --sidebar-primary: oklch(0.7 0.2 200); /* Electric blue sidebar primary */
+  --sidebar-primary-foreground: oklch(
+    0.98 0.01 40
+  ); /* Near-white sidebar primary text */
+  --sidebar-accent: oklch(0.9 0.08 40); /* Soft orange sidebar accent */
+  --sidebar-accent-foreground: oklch(
+    0.3 0.15 200
+  ); /* Darker blue sidebar accent text */
+  --sidebar-border: oklch(0.88 0.05 200); /* Light blue sidebar border */
+  --sidebar-ring: oklch(0.65 0.15 200); /* Mid-tone blue sidebar ring */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.dark {
+  --background: oklch(0.2 0.1 200); /* Deep blue background */
+  --foreground: oklch(0.95 0.03 40); /* Light orange text */
+  --card: oklch(0.25 0.12 200); /* Dark blue card */
+  --card-foreground: oklch(0.95 0.03 40); /* Light orange card text */
+  --popover: oklch(0.25 0.12 200); /* Dark blue popover */
+  --popover-foreground: oklch(0.95 0.03 40); /* Light orange popover text */
+  --primary: oklch(0.75 0.18 40); /* Bright orange primary */
+  --primary-foreground: oklch(0.2 0.1 200); /* Dark blue primary text */
+  --secondary: oklch(0.35 0.1 200); /* Muted blue secondary */
+  --secondary-foreground: oklch(0.95 0.03 40); /* Light orange secondary text */
+  --muted: oklch(0.3 0.08 200); /* Dark muted blue */
+  --muted-foreground: oklch(0.65 0.12 200); /* Mid-tone blue muted text */
+  --accent: oklch(0.4 0.12 40); /* Dark orange accent */
+  --accent-foreground: oklch(0.95 0.03 40); /* Light orange accent text */
+  --destructive: oklch(0.6 0.22 20); /* Darker red for destructive */
+  --border: oklch(0.88 0.05 200 / 20%); /* Semi-transparent blue border */
+  --input: oklch(0.88 0.05 200 / 25%); /* Semi-transparent blue input */
+  --ring: oklch(0.6 0.15 40); /* Mid-tone orange ring */
+  --chart-1: oklch(0.6 0.2 200); /* Dark blue chart 1 */
+  --chart-2: oklch(0.58 0.18 40); /* Dark orange chart 2 */
+  --chart-3: oklch(0.56 0.16 160); /* Dark cyan chart 3 */
+  --chart-4: oklch(0.62 0.14 200); /* Muted dark blue chart 4 */
+  --chart-5: oklch(0.64 0.12 180); /* Dark teal chart 5 */
+  --sidebar: oklch(0.25 0.12 200); /* Dark blue sidebar */
+  --sidebar-foreground: oklch(0.95 0.03 40); /* Light orange sidebar text */
+  --sidebar-primary: oklch(0.75 0.18 40); /* Bright orange sidebar primary */
+  --sidebar-primary-foreground: oklch(
+    0.2 0.1 200
+  ); /* Dark blue sidebar primary text */
+  --sidebar-accent: oklch(0.4 0.12 40); /* Dark orange sidebar accent */
+  --sidebar-accent-foreground: oklch(
+    0.95 0.03 40
+  ); /* Light orange sidebar accent text */
+  --sidebar-border: oklch(
+    0.88 0.05 200 / 20%
+  ); /* Semi-transparent blue sidebar border */
+  --sidebar-ring: oklch(0.6 0.15 40); /* Mid-tone orange sidebar ring */
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes scanline {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 100%;
+  }
+}
+
+@keyframes slow-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-scanline {
+  animation: scanline 8s linear infinite;
+}
+
+.animate-slow-spin {
+  animation: slow-spin 12s linear infinite;
+}
+
+@keyframes sound-wave {
+  0% {
+    height: 10%;
+  }
+  50% {
+    height: 100%;
+  }
+  100% {
+    height: 10%;
+  }
+}
+
+.animate-sound-wave {
+  animation: sound-wave 1.2s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-in-out forwards;
 }
