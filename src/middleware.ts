@@ -4,6 +4,7 @@ const isProtectRoute = createRouteMatcher([
   "/generate-program",
   "/profile",
   "/progress",
+  "/plan",
 ]);
 export default clerkMiddleware(async (auth, req) => {
   if (isProtectRoute(req)) await auth.protect();

@@ -10,6 +10,7 @@ import { ProgressSummary } from "@/components/progress/ProgressSummary";
 import { WorkoutHistory } from "@/components/progress/WorkoutHistory";
 import { MeasurementsLogForm } from "@/components/progress/MeasurementsLogForm";
 import { MeasurementsHistory } from "@/components/progress/MeasurementsHistory";
+import { WorkoutStreak } from "@/components/progress/WorkoutStreak";
 
 const ProgressPage = () => {
   const { user } = useUser();
@@ -24,7 +25,7 @@ const ProgressPage = () => {
       <h1 className="text-2xl sm:text-3xl font-bold mb-8">
         <span className="text-primary">Track</span> Your Progress
       </h1>
-
+      <WorkoutStreak userId={userId} />
       <WeightLogForm userId={userId} />
       <MeasurementsLogForm userId={userId} />
       {activePlan && <WorkoutLogForm userId={userId} activePlan={activePlan} />}

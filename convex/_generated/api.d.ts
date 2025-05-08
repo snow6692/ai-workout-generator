@@ -17,6 +17,7 @@ import type * as http from "../http.js";
 import type * as plans from "../plans.js";
 import type * as progressLogs from "../progressLogs.js";
 import type * as users from "../users.js";
+import type * as workoutPlans from "../workoutPlans.js";
 
 /**
  * A utility for referencing Convex functions in your app's API.
@@ -31,6 +32,7 @@ declare const fullApi: ApiFromModules<{
   plans: typeof plans;
   progressLogs: typeof progressLogs;
   users: typeof users;
+  workoutPlans: typeof workoutPlans;
 }>;
 export declare const api: FilterApi<
   typeof fullApi,

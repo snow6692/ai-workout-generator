@@ -33,6 +33,13 @@ const Navbar = () => {
                 <DumbbellIcon size={16} />
                 <span>Generate</span>
               </Link>
+              <Link
+                href="/progress"
+                className="flex items-center gap-1.5 text-sm hover:text-primary transition-colors"
+              >
+                <DumbbellIcon size={16} />
+                <span>Your Progress</span>
+              </Link>
 
               <Link
                 href="/profile"
