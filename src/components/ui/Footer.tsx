@@ -1,4 +1,4 @@
-import { ZapIcon } from "lucide-react";
+import { Github, Linkedin, ZapIcon } from "lucide-react";
 import Link from "next/link";
 
 const Footer = () => {
@@ -26,49 +26,18 @@ const Footer = () => {
 
           {/* Links */}
           <div className="grid grid-cols-2 md:grid-cols-3 gap-x-12 gap-y-2 text-sm">
-            <Link
-              href="/about"
-              className="text-muted-foreground hover:text-primary transition-colors"
+            <a href="https://github.com/snow6692" target="_blank">
+              <Github size={24} className="cursor-pointer text-primary" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/ahmed-hamada-a83309239/"
+              target="_blank"
             >
-              About
-            </Link>
-            <Link
-              href="/terms"
-              className="text-muted-foreground hover:text-primary transition-colors"
-            >
-              Terms
-            </Link>
-            <Link
-              href="/privacy"
-              className="text-muted-foreground hover:text-primary transition-colors"
-            >
-              Privacy
-            </Link>
-            <Link
-              href="/contact"
-              className="text-muted-foreground hover:text-primary transition-colors"
-            >
-              Contact
-            </Link>
-            <Link
-              href="/blog"
-              className="text-muted-foreground hover:text-primary transition-colors"
-            >
-              Blog
-            </Link>
-            <Link
-              href="/help"
-              className="text-muted-foreground hover:text-primary transition-colors"
-            >
-              Help
-            </Link>
+              <Linkedin size={24} className="cursor-pointer text-primary" />
+            </a>
           </div>
 
           {/* Status */}
-          <div className="flex items-center gap-2 px-3 py-2 border border-border rounded-md bg-background/50">
-            <div className="w-2 h-2 rounded-full bg-green-500"></div>
-            <span className="text-xs font-mono">SYSTEM OPERATIONAL</span>
-          </div>
         </div>
       </div>
     </footer>

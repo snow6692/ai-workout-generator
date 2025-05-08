@@ -10,12 +10,12 @@ const Navbar = () => {
   const { isSignedIn } = useUser();
 
   return (
-    <header className="fixed top-0 left-5  right-5 z-50 bg-background/60 backdrop-blur-md border-b border-border py-3">
+    <header className="fixed top-0 sm:left-5  sm:right-5 z-50 bg-background/60 backdrop-blur-md border-b border-border py-3">
       <div className="container mx-auto flex items-center justify-between">
         {/* LOGO */}
         <Link href="/" className="flex items-center gap-2">
           <div className="p-1 bg-primary/10 rounded">
-            <ZapIcon className="w-4 h-4 text-primary" />
+            <ZapIcon className="w-4 h-4 text-primary " />
           </div>
           <span className="md:text-xl hidden sm:block  font-bold font-mono">
             Snow Workout
@@ -37,8 +37,8 @@ const Navbar = () => {
                 href="/progress"
                 className="flex items-center gap-1.5 text-sm hover:text-primary transition-colors"
               >
-                <DumbbellIcon size={16} />
-                <span>Your Progress</span>
+                <DumbbellIcon size={16} className=" " />
+                <span>Status</span>
               </Link>
 
               <Link
@@ -46,7 +46,7 @@ const Navbar = () => {
                 className="flex items-center gap-1.5 text-sm hover:text-primary transition-colors"
               >
                 <UserIcon size={16} />
-                <span>Profile</span>
+                <span className="">Profile</span>
               </Link>
 
               <UserButton />

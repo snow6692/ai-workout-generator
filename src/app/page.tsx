@@ -1,82 +1,72 @@
 import TerminalOverlay from "@/components/TerminalOverlay";
 import { Button } from "@/components/ui/button";
-import UserPrograms from "@/components/UserPrograms";
 import { ArrowRightIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 const HomePage = () => {
   return (
-    <div className="flex flex-col min-h-screen text-foreground overflow-hidden">
-      <section className="relative z-10 py-24 flex-grow">
+    <div className="flex flex-col min-h-screen text-foreground bg-background overflow-hidden">
+      <section className="relative z-10 py-16 md:py-24 flex-grow">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative">
-            {/* CORNER DECARATION */}
-            <div className="absolute -top-10 left-0 w-40 h-40 border-l-2 border-t-2" />
-
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             {/* LEFT SIDE CONTENT */}
-            <div className="lg:col-span-7 space-y-8 relative">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
+            <div className="lg:col-span-7 space-y-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
                 <div>
-                  <span className="text-foreground">Transform</span>
+                  <span className="text-blue-600">Transform</span>
                 </div>
                 <div>
-                  <span className="text-primary">Your Body</span>
+                  <span className="text-orange-500">Your Body</span>
                 </div>
-                <div className="pt-2">
-                  <span className="text-foreground">With Advanced</span>
+                <div className="pt-1">
+                  <span className="text-blue-600">With AI</span>
                 </div>
-                <div className="pt-2">
-                  <span className="text-foreground">AI</span>
-                  <span className="text-primary"> Technology</span>
+                <div className="pt-1">
+                  <span className="text-orange-500">Technology</span>
                 </div>
               </h1>
 
-              {/* SEPERATOR LINE */}
-              <div className="h-px w-full bg-gradient-to-r from-primary via-secondary to-primary opacity-50"></div>
+              {/* SEPARATOR LINE */}
+              <div className="h-px w-1/2 bg-gradient-to-r from-blue-600 to-orange-500"></div>
 
-              <p className="text-xl text-muted-foreground w-2/3">
-                Talk to our AI assistant and get personalized diet plans and
-                workout routines designed just for you
+              <p className="text-lg text-muted-foreground md:w-3/4">
+                Chat with our AI assistant to get personalized workout plans and
+                diet routines tailored to your goals.
               </p>
 
               {/* STATS */}
-              <div className="flex items-center gap-10 py-6 font-mono">
+              <div className="grid grid-cols-3 gap-4 py-4 font-mono text-sm">
                 <div className="flex flex-col">
-                  <div className="text-2xl text-primary">500+</div>
-                  <div className="text-xs uppercase tracking-wider">
-                    ACTIVE USERS
+                  <div className="text-xl text-blue-600">500+</div>
+                  <div className="text-xs uppercase tracking-wider text-muted-foreground">
+                    Active Users
                   </div>
                 </div>
-                <div className="h-12 w-px bg-gradient-to-b from-transparent via-border to-transparent"></div>
                 <div className="flex flex-col">
-                  <div className="text-2xl text-primary">3min</div>
-                  <div className="text-xs uppercase tracking-wider">
-                    GENERATION
+                  <div className="text-xl text-blue-600">3min</div>
+                  <div className="text-xs uppercase tracking-wider text-muted-foreground">
+                    Generation
                   </div>
                 </div>
-                <div className="h-12 w-px bg-gradient-to-b from-transparent via-border to-transparent"></div>
                 <div className="flex flex-col">
-                  <div className="text-2xl text-primary">100%</div>
-                  <div className="text-xs uppercase tracking-wider">
-                    PERSONALIZED
+                  <div className="text-xl text-blue-600">100%</div>
+                  <div className="text-xs uppercase tracking-wider text-muted-foreground">
+                    Personalized
                   </div>
                 </div>
               </div>
 
               {/* BUTTON */}
-              <div className="flex flex-col sm:flex-row gap-4 pt-6">
+              <div className="pt-4">
                 <Button
                   size="lg"
                   asChild
-                  className="overflow-hidden bg-primary text-primary-foreground px-8 py-6 text-lg font-medium"
+                  className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-5 text-base font-mono"
                 >
-                  <Link
-                    href={"/generate-program"}
-                    className="flex items-center font-mono"
-                  >
+                  <Link href="/generate-program" className="flex items-center">
                     Build Your Program
-                    <ArrowRightIcon className="ml-2 size-5" />
+                    <ArrowRightIcon className="ml-2 size-4" />
                   </Link>
                 </Button>
               </div>
@@ -84,40 +74,26 @@ const HomePage = () => {
 
             {/* RIGHT SIDE CONTENT */}
             <div className="lg:col-span-5 relative">
-              {/* CORNER PIECES */}
-              <div className="absolute -inset-4 pointer-events-none">
-                <div className="absolute top-0 left-0 w-16 h-16 border-l-2 border-t-2 border-border" />
-                <div className="absolute top-0 right-0 w-16 h-16 border-r-2 border-t-2 border-border" />
-                <div className="absolute bottom-0 left-0 w-16 h-16 border-l-2 border-b-2 border-border" />
-                <div className="absolute bottom-0 right-0 w-16 h-16 border-r-2 border-b-2 border-border" />
-              </div>
-
-              {/* IMAGE CONTANINER */}
-              <div className="relative aspect-square max-w-lg mx-auto">
-                <div className="relative overflow-hidden rounded-lg bg-cyber-black">
+              {/* IMAGE CONTAINER */}
+              <div className="relative aspect-square max-w-md mx-auto">
+                <div className="relative overflow-hidden rounded-lg bg-gradient-to-br from-blue-600/20 to-orange-500/20">
                   <Image
                     src="/home.jpg"
                     alt="AI Fitness Coach"
                     className="size-full object-cover object-center"
-                    width={600}
-                    height={600}
+                    width={500}
+                    height={500}
                   />
 
                   {/* SCAN LINE */}
-                  <div className="absolute inset-0 bg-[linear-gradient(transparent_0%,transparent_calc(50%-1px),var(--cyber-glow-primary)_50%,transparent_calc(50%+1px),transparent_100%)] bg-[length:100%_8px] animate-scanline pointer-events-none" />
+                  <div className="absolute inset-0 bg-[linear-gradient(transparent_0%,transparent_calc(50%-1px),#3b82f6_50%,transparent_calc(50%+1px),transparent_100%)] bg-[length:100%_8px] animate-scanline pointer-events-none" />
 
-                  {/* DECORATIONS ON TOP THE IMAGE */}
+                  {/* DECORATIVE CIRCLE */}
                   <div className="absolute inset-0 pointer-events-none">
-                    <div className="absolute top-1/3 left-1/3 w-1/3 h-1/3 border border-primary/40 rounded-full" />
-
-                    {/* Targeting lines */}
-                    <div className="absolute top-1/2 left-0 w-1/4 h-px bg-primary/50" />
-                    <div className="absolute top-1/2 right-0 w-1/4 h-px bg-primary/50" />
-                    <div className="absolute top-0 left-1/2 h-1/4 w-px bg-primary/50" />
-                    <div className="absolute bottom-0 left-1/2 h-1/4 w-px bg-primary/50" />
+                    <div className="absolute top-1/3 left-1/3 w-1/3 h-1/3 border border-orange-500/40 rounded-full" />
                   </div>
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
                 </div>
 
                 {/* TERMINAL OVERLAY */}
@@ -127,9 +103,8 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-
-      <UserPrograms />
     </div>
   );
 };
+
 export default HomePage;
