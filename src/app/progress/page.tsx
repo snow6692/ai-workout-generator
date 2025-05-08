@@ -8,6 +8,8 @@ import { WorkoutLogForm } from "@/components/progress/WorkoutLogForm";
 import { WeightHistoryChart } from "@/components/progress/WeightHistoryChart";
 import { ProgressSummary } from "@/components/progress/ProgressSummary";
 import { WorkoutHistory } from "@/components/progress/WorkoutHistory";
+import { MeasurementsLogForm } from "@/components/progress/MeasurementsLogForm";
+import { MeasurementsHistory } from "@/components/progress/MeasurementsHistory";
 
 const ProgressPage = () => {
   const { user } = useUser();
@@ -24,8 +26,10 @@ const ProgressPage = () => {
       </h1>
 
       <WeightLogForm userId={userId} />
+      <MeasurementsLogForm userId={userId} />
       {activePlan && <WorkoutLogForm userId={userId} activePlan={activePlan} />}
       <WeightHistoryChart logs={logs} />
+      <MeasurementsHistory logs={logs} />
       <ProgressSummary logs={logs} recentLogs={recentLogs} />
       <WorkoutHistory logs={logs} />
     </div>
