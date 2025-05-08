@@ -43,6 +43,31 @@ export const getUserLogs = query({
       .query("progress_logs")
       .filter((q) => q.eq(q.field("userId"), args.userId))
       .order("desc")
-      .take(50); 
+      .take(50);
+  },
+});
+
+export const getActivePlan = query({
+  args: { userId: v.string() },
+  handler: async (ctx, args) => {
+    return await ctx.db
+      .query("plans")
+      .filter((q) => q.eq(q.field("userId"), args.userId))
+      .filter((q) => q.eq(q.field("isActive"), true))
+      .first();
+  },
+});
+
+export const getRecentWorkoutLogs = query({
+  args: { userId: v.string(), days: v.number() },
+  handler: async (ctx, args) => {
+    const cutoffDate = new Date();
+    cutoffDate.setDate(cutoffDate.getDate() - args.days);
+    return await ctx.db
+      .query("progress_logs")
+      .filter((q) => q.eq(q.field("userId"), args.userId))
+      .filter((q) => q.gte(q.field("date"), cutoffDate.toISOString()))
+      .order("desc")
+      .collect();
   },
 });
