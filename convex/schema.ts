@@ -43,4 +43,29 @@ export default defineSchema({
   })
     .index("by_user_id", ["userId"])
     .index("by_active", ["isActive"]),
+
+  progress_logs: defineTable({
+    userId: v.string(),
+    date: v.string(), // ISO string, e.g., "2025-05-08T15:00:00Z"
+    weight: v.optional(v.number()), // in kg 
+    measurements: v.optional(
+      v.object({
+        waist: v.optional(v.number()), // in cm 
+        chest: v.optional(v.number()),
+        hips: v.optional(v.number()),
+      })
+    ),
+    workoutPerformance: v.optional(
+      v.array(
+        v.object({
+          exerciseName: v.string(),
+          setsCompleted: v.number(),
+          repsCompleted: v.number(),
+          weightUsed: v.optional(v.number()), // weight lifted, if applicable
+        })
+      )
+    ),
+  })
+    .index("by_userId", ["userId"])
+    .index("by_userId_date", ["userId", "date"]), // For efficient date-based queries
 });

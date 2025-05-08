@@ -15,6 +15,7 @@ import type {
 } from "convex/server";
 import type * as http from "../http.js";
 import type * as plans from "../plans.js";
+import type * as progressLogs from "../progressLogs.js";
 import type * as users from "../users.js";
 
 /**
@@ -28,6 +29,7 @@ import type * as users from "../users.js";
 declare const fullApi: ApiFromModules<{
   http: typeof http;
   plans: typeof plans;
+  progressLogs: typeof progressLogs;
   users: typeof users;
 }>;
 export declare const api: FilterApi<
