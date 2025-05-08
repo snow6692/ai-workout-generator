@@ -1,21 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/providers/theme-provider";
-
+import { Toaster } from "react-hot-toast";
 import Navbar from "@/components/ui/Navbar";
 import { ConvexClerkProvider } from "@/providers/ConvexClerkProvider";
 import Footer from "@/components/ui/Footer";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -41,6 +30,7 @@ export default function RootLayout({
           >
             <Navbar />
             {children}
+            <Toaster />
             <Footer />
           </ThemeProvider>
         </body>
