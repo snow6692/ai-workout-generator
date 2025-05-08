@@ -1,7 +1,8 @@
+import GenerateProgramPage from "@/components/GenerateProgramPage";
 import React from "react";
 
-function GenerateProgramPage() {
-  return <div>GenerateProgramPage</div>;
+function GenerateProgram() {
+  return <GenerateProgramPage />;
 }
 
-export default GenerateProgramPage;
+export default GenerateProgram;

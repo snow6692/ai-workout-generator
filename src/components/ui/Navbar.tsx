@@ -54,9 +54,9 @@ const Navbar = () => {
                   Sign In
                 </Button>
               </SignInButton>
-              <ModeToggle />
             </>
           )}
+          <ModeToggle />
         </nav>
       </div>
     </header>
